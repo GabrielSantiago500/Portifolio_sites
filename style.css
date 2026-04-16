@@ -1,0 +1,234 @@
+/* ===== RESET BÁSICO ===== */
+/* Remove espaçamentos padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ESTILO GERAL ===== */
+body {
+  /* Define a fonte principal do site */
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Cor de fundo suave */
+  background-color: #f7f5f2;
+
+  /* Cor principal dos textos */
+  color: #2f2a26;
+}
+
+/* Limita a largura e centraliza o conteúdo */
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* ===== CABEÇALHO ===== */
+.topo {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e4ddd7;
+  position: sticky;
+  top: 0;
+}
+
+.topo-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6a4e42;
+}
+
+.menu {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #2f2a26;
+  font-weight: bold;
+}
+
+/* ===== BANNER ===== */
+.hero {
+  padding: 95px 20px;
+  text-align: center;
+  background: linear-gradient(rgba(106, 78, 66, 0.68), rgba(106, 78, 66, 0.68)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80") center/cover;
+}
+
+.hero-conteudo {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: #f2ebe6;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-size: 1.1rem;
+}
+
+.hero-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===== BOTÕES ===== */
+.botao {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.botao-principal {
+  background-color: #6a4e42;
+  color: #ffffff;
+}
+
+.botao-secundario {
+  background-color: #ffffff;
+  color: #6a4e42;
+}
+
+/* ===== SEÇÕES ===== */
+.secao {
+  padding: 75px 0;
+}
+
+.secao-destaque {
+  background-color: #efe8e2;
+}
+
+.titulo-secao {
+  text-align: center;
+  font-size: 2rem;
+  color: #6a4e42;
+  margin-bottom: 12px;
+}
+
+.subtitulo-secao {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 38px;
+  line-height: 1.7;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: #6a4e42;
+  margin-bottom: 12px;
+}
+
+.card p {
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.botoes-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link-card {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6a4e42;
+}
+
+.link-secundario {
+  color: #b06b4f;
+}
+
+/* ===== VANTAGENS ===== */
+.lista-vantagens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.vantagem {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.vantagem h3 {
+  margin-bottom: 12px;
+  color: #6a4e42;
+}
+
+.vantagem p {
+  line-height: 1.7;
+}
+
+/* ===== CONTATO ===== */
+.contato-box {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.contato-box p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  text-align: center;
+  padding: 22px 15px;
+  background-color: #6a4e42;
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+  .cards,
+  .lista-vantagens {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
