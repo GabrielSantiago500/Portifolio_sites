@@ -6,16 +6,31 @@
   box-sizing: border-box;
 }
 
+/* ===== CORES DO SITE ===== */
+/* Aqui ficam as cores principais para facilitar futuras mudanças */
+:root {
+  --fundo-principal: #050505;
+  --fundo-secundario: #0d0d0d;
+  --fundo-destaque: #111111;
+  --texto-principal: #ffffff;
+  --texto-secundario: #cfcfcf;
+  --azul-neon: #1e90ff;
+  --roxo-neon: #a855f7;
+  --borda-neon: rgba(168, 85, 247, 0.35);
+  --sombra-azul: 0 0 20px rgba(30, 144, 255, 0.22);
+  --sombra-roxa: 0 0 20px rgba(168, 85, 247, 0.22);
+}
+
 /* ===== ESTILO GERAL ===== */
 body {
   /* Define a fonte principal do site */
   font-family: Arial, Helvetica, sans-serif;
 
-  /* Cor de fundo suave */
-  background-color: #f7f5f2;
+  /* Fundo escuro no estilo tecnologia */
+  background: linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
 
   /* Cor principal dos textos */
-  color: #2f2a26;
+  color: var(--texto-principal);
 }
 
 /* Limita a largura e centraliza o conteúdo */
@@ -27,10 +42,12 @@ body {
 
 /* ===== CABEÇALHO ===== */
 .topo {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e4ddd7;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid var(--borda-neon);
   position: sticky;
   top: 0;
+  z-index: 1000;
+  box-shadow: var(--sombra-azul);
 }
 
 .topo-conteudo {
@@ -45,7 +62,14 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #6a4e42;
+  color: var(--texto-principal);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+/* Caso você queira destacar uma parte da logo com cor neon */
+.logo span {
+  color: var(--azul-neon);
+  text-shadow: 0 0 12px rgba(30, 144, 255, 0.7);
 }
 
 .menu {
@@ -56,15 +80,24 @@ body {
 
 .menu a {
   text-decoration: none;
-  color: #2f2a26;
+  color: var(--texto-principal);
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: var(--azul-neon);
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
 }
 
 /* ===== BANNER ===== */
 .hero {
   padding: 95px 20px;
   text-align: center;
-  background: linear-gradient(rgba(106, 78, 66, 0.68), rgba(106, 78, 66, 0.68)),
+
+  /* Fundo com imagem + escurecimento + tom neon */
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.82), rgba(10, 10, 10, 0.88)),
     url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80") center/cover;
 }
 
@@ -75,12 +108,19 @@ body {
 
 .hero h1 {
   font-size: 2.8rem;
-  color: #ffffff;
+  color: var(--texto-principal);
   margin-bottom: 16px;
+  text-shadow: 0 0 14px rgba(168, 85, 247, 0.2);
+}
+
+/* Se quiser destacar uma palavra no título */
+.hero h1 span {
+  color: var(--roxo-neon);
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
 }
 
 .hero p {
-  color: #f2ebe6;
+  color: var(--texto-secundario);
   line-height: 1.7;
   margin-bottom: 28px;
   font-size: 1.1rem;
@@ -100,16 +140,30 @@ body {
   padding: 14px 24px;
   border-radius: 999px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .botao-principal {
-  background-color: #6a4e42;
-  color: #ffffff;
+  background: linear-gradient(90deg, var(--azul-neon), var(--roxo-neon));
+  color: var(--texto-principal);
+  box-shadow: var(--sombra-azul), var(--sombra-roxa);
+}
+
+.botao-principal:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
 }
 
 .botao-secundario {
-  background-color: #ffffff;
-  color: #6a4e42;
+  background-color: transparent;
+  color: var(--texto-principal);
+  border: 1px solid var(--borda-neon);
+  box-shadow: var(--sombra-roxa);
+}
+
+.botao-secundario:hover {
+  transform: translateY(-3px);
+  border-color: var(--azul-neon);
 }
 
 /* ===== SEÇÕES ===== */
@@ -118,14 +172,15 @@ body {
 }
 
 .secao-destaque {
-  background-color: #efe8e2;
+  background-color: var(--fundo-destaque);
 }
 
 .titulo-secao {
   text-align: center;
   font-size: 2rem;
-  color: #6a4e42;
+  color: var(--azul-neon);
   margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.45);
 }
 
 .subtitulo-secao {
@@ -133,6 +188,7 @@ body {
   max-width: 720px;
   margin: 0 auto 38px;
   line-height: 1.7;
+  color: var(--texto-secundario);
 }
 
 /* ===== CARDS ===== */
@@ -143,20 +199,31 @@ body {
 }
 
 .card {
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borda-neon);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 20px rgba(30, 144, 255, 0.18),
+    0 0 20px rgba(168, 85, 247, 0.18);
 }
 
 .card h3 {
-  color: #6a4e42;
+  color: var(--roxo-neon);
   margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
 }
 
 .card p {
   line-height: 1.7;
   margin-bottom: 18px;
+  color: var(--texto-secundario);
 }
 
 .botoes-card {
@@ -168,11 +235,15 @@ body {
 .link-card {
   text-decoration: none;
   font-weight: bold;
-  color: #6a4e42;
+  color: var(--azul-neon);
+}
+
+.link-card:hover {
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
 }
 
 .link-secundario {
-  color: #b06b4f;
+  color: var(--roxo-neon);
 }
 
 /* ===== VANTAGENS ===== */
@@ -183,18 +254,21 @@ body {
 }
 
 .vantagem {
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borda-neon);
   border-radius: 20px;
   padding: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .vantagem h3 {
   margin-bottom: 12px;
-  color: #6a4e42;
+  color: var(--azul-neon);
 }
 
 .vantagem p {
   line-height: 1.7;
+  color: var(--texto-secundario);
 }
 
 /* ===== CONTATO ===== */
@@ -202,23 +276,28 @@ body {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borda-neon);
   border-radius: 20px;
   padding: 32px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 0 18px rgba(30, 144, 255, 0.12),
+    0 0 18px rgba(168, 85, 247, 0.12);
 }
 
 .contato-box p {
   margin-bottom: 20px;
   line-height: 1.7;
+  color: var(--texto-secundario);
 }
 
 /* ===== RODAPÉ ===== */
 .rodape {
   text-align: center;
   padding: 22px 15px;
-  background-color: #6a4e42;
-  color: #ffffff;
+  background-color: #000000;
+  color: var(--texto-principal);
+  border-top: 1px solid var(--borda-neon);
 }
 
 /* ===== RESPONSIVIDADE ===== */
@@ -231,4 +310,33 @@ body {
   .hero h1 {
     font-size: 2.2rem;
   }
+}
+/* ===== BOTÃO FLUTUANTE WHATSAPP ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  background: linear-gradient(45deg, #25d366, #1ebe5d);
+  color: white;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  text-decoration: none;
+
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+  z-index: 999;
+
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
